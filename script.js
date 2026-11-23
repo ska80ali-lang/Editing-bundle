@@ -248,15 +248,23 @@
       bar.setAttribute("aria-hidden", String(!show));
       barLink.tabIndex = show ? 0 : -1;
     };
-    new IntersectionObserver(function (en) {
-      var e = en[0];
-      pastHero = !e.isIntersecting && e.boundingClientRect.top < 0;
+    // Position check on scroll (rAF-throttled). Works even when the user flings
+    // past the hero CTA so fast that it never enters the viewport.
+    var ticking = false;
+    var check = function () {
+      ticking = false;
+      var vh = window.innerHeight;
+      var f = finalCta.getBoundingClientRect();
+      pastHero = heroCta.getBoundingClientRect().bottom < 0;
+      finalVisible = f.top < vh - f.height * 0.15 && f.bottom > f.height * 0.15;
       update();
-    }).observe(heroCta);
-    new IntersectionObserver(function (en) {
-      finalVisible = en[0].isIntersecting;
-      update();
-    }, { threshold: 0.15 }).observe(finalCta);
+    };
+    var onScroll = function () {
+      if (!ticking) { ticking = true; requestAnimationFrame(check); }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
+    check();
   }
 
   /* ---------- 10. Meta Pixel (only if META_PIXEL_ID is set) ---------- */
