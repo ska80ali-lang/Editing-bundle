@@ -37,12 +37,11 @@ The legal pages pick up your brand name and support email from `config.js` autom
 
 | Slot | Size (px) | Ratio | Notes |
 |---|---|---|---|
-| `HERO_MOCKUP` | 1080 × 1350 | 4:5 | Main product box. Loads first (not lazy). |
 | `OG_IMAGE` | 1200 × 630 | 1.91:1 | The image shown when the link is shared on social. |
 | `LOGO` | 512 × 512 | 1:1 | Square; a transparent PNG/SVG works best. |
 | `FAVICON` | 512 × 512 (or 48 × 48) | 1:1 | PNG, SVG or ICO. |
 
-Tips for a good Lighthouse score: use **WebP** (or AVIF) and keep the hero under about 200 KB.
+Tip: use **WebP** (or AVIF) and keep images under about 200 KB.
 
 > **Social preview note:** the page adds `OG_IMAGE` to its tags with JavaScript, and Facebook, WhatsApp and X don't run JavaScript when they read a page. To get a reliable share preview, also paste the full OG image URL into the `og:image` and `twitter:image` `content="…"` attributes in `index.html`. Those are the only two places this applies.
 

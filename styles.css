@@ -195,11 +195,11 @@ h3 { font-size: 18px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.
 .hero-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  grid-template-areas: "head" "media" "buy";
+  grid-template-areas: "head" "buy";
   gap: 28px;
 }
 .hero-head { grid-area: head; }
-.hero-media { grid-area: media; position: relative; max-width: 440px; width: 100%; margin: 0 auto; }
+.hero-panel { grid-area: panel; display: none; }
 .hero-buy { grid-area: buy; }
 
 .eyebrow {
@@ -216,18 +216,56 @@ h3 { font-size: 18px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.
 .hero h1 { margin-bottom: 16px; }
 .hero-sub { color: var(--text-2); font-size: 16px; max-width: 34em; }
 
-.hero-glow {
-  position: absolute; inset: 8% 4% 0;
-  z-index: -1;
-  background: radial-gradient(closest-side, rgba(255, 150, 60, .45), rgba(255, 106, 61, .15) 55%, transparent 80%);
-  filter: blur(30px);
+
+/* Hero "Inside the Bundle" panel (desktop only — replaces the product image) */
+.hero-panel {
+  position: relative;
+  padding: 28px 28px 24px;
+  border-radius: 20px;
+  background:
+    radial-gradient(80% 60% at 100% 0%, rgba(255, 140, 70, .16), transparent 70%),
+    var(--surface);
+  box-shadow: 0 40px 90px -40px rgba(255, 106, 61, .55);
+  isolation: isolate;
+}
+.hero-panel::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  border-radius: inherit; padding: 1.5px;
+  background: linear-gradient(135deg, rgba(255,181,71,.7), rgba(255,106,61,.25) 50%, rgba(255,255,255,.06));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
   pointer-events: none;
 }
-.hero-media .media-slot {
-  border-radius: var(--radius);
-  box-shadow: 0 30px 80px -30px rgba(255, 106, 61, .45), 0 0 0 1px var(--border);
-  background: var(--surface);
+.hero-panel-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+.hero-panel-title { font-family: var(--font-head); font-weight: 700; font-size: 22px; letter-spacing: -0.01em; }
+.hero-panel-tag {
+  padding: 4px 12px; border-radius: 999px;
+  background: var(--grad); color: var(--on-accent);
+  font-weight: 700; font-size: 13px; letter-spacing: .04em;
 }
+.hero-list li {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 0;
+  border-top: 1px solid var(--border);
+  font-size: 16px; font-weight: 500; color: #E4E4E7;
+}
+.hero-list li:first-child { border-top: 0; }
+.hero-list .icon {
+  width: 26px; height: 26px; padding: 5px; flex: none;
+  border-radius: 8px; background: rgba(255,181,71,.12); color: var(--amber);
+}
+.hero-list b {
+  font-family: var(--font-head); font-weight: 700; color: var(--amber);
+}
+.hero-panel-foot {
+  display: flex; flex-wrap: wrap; gap: 8px 18px;
+  margin-top: 14px; padding-top: 16px;
+  border-top: 1px solid var(--border-strong);
+  font-size: 14px; font-weight: 600; color: var(--text-2);
+}
+.hero-panel-foot span { display: inline-flex; align-items: center; gap: 6px; }
+.hero-panel-foot .icon { width: 16px; height: 16px; color: var(--amber); }
 
 .price-block { margin-bottom: 18px; }
 .price-row { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
@@ -662,14 +700,14 @@ h3 { font-size: 18px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.
   .hero { padding: 72px 0 96px; }
   .hero-grid {
     grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
-    grid-template-areas: "head media" "buy media";
+    grid-template-areas: "head panel" "buy panel";
     grid-template-rows: auto 1fr;
     column-gap: 56px;
     row-gap: 28px;
     align-items: start;
   }
   .hero-head { align-self: end; }
-  .hero-media { align-self: center; max-width: 480px; }
+  .hero-panel { display: block; align-self: center; }
 
   .stats .container { padding: 0 var(--gutter); }
   .stats-row { overflow: visible; padding: 28px 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; }
@@ -704,7 +742,6 @@ h3 { font-size: 18px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.
   h2 { font-size: 42px; }
   .hero-sub { font-size: 19px; }
   .hero { padding: 88px 0 112px; }
-  .hero-media { max-width: 500px; }
 }
 
 /* ---------- Reduced motion ---------- */
