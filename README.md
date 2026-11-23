@@ -3,9 +3,9 @@
 A static, mobile-first landing page. No framework and no build step.
 
 ```
-index.html   page markup
+index.html   page markup (no links/prices/images hardcoded)
 terms.html, privacy-policy.html, refund-policy.html,
-delivery-policy.html, disclaimer.html, contact.html   legal pages (no links/prices/images hardcoded)
+delivery-policy.html, disclaimer.html, contact.html   legal pages
 styles.css   all styling
 script.js    reads config.js and wires everything up
 config.js    ← the ONLY file you edit
@@ -18,8 +18,8 @@ Open `config.js` and paste your values between the quotes. Anything left as `""`
 
 | Key | What it does |
 |---|---|
-| `BUY_LINK` | Your SuperProfile checkout URL. **Every** Buy button (header, hero, preview, final CTA, mobile sticky bar) uses it. If it's empty, buttons do nothing and the console shows a warning. |
-| `BRAND_NAME` | Shown in the header, footer and copyright line. |
+| `BUY_LINK` | Your SuperProfile checkout URL. **Every** Buy button (hero, preview, final CTA, mobile sticky bar) uses it. If it's empty, buttons do nothing and the console shows a warning. |
+| `BRAND_NAME` | Shown in the footer, copyright line and legal pages. |
 | `CONTACT_EMAIL` / `CONTACT_PHONE` | Footer `mailto:` / `tel:` links. Use the phone number with country code, e.g. `+91 98765 43210`. |
 | `BUSINESS_ADDRESS` | Shown on the Contact page and inside every policy (recommended for payment-gateway compliance). |
 | `TERMS_LINK`, `PRIVACY_LINK`, `REFUND_LINK`, `DELIVERY_LINK`, `DISCLAIMER_LINK`, `CONTACT_LINK` | Footer legal links. They already point to the built-in pages (`/terms`, `/privacy-policy`, `/refund-policy`, `/delivery-policy`, `/disclaimer`, `/contact`). Change one only if you host that page elsewhere; set it to `""` to hide it. |
