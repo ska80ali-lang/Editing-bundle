@@ -21,7 +21,7 @@ window.SITE_CONFIG = {
   MRP: "₹1,999",
   IMAGES: {
     LOGO: "",
-    HERO_MOCKUP: "/images/hero-mockup.jpg",            // main product box image
+    HERO_MOCKUP: "https://i.ibb.co/yxW2BMW/file-000000009608820ba2ff971fdf6fbc4c.png",            // main product box image
     OG_IMAGE: "",               // social share image
     FAVICON: ""
   },
