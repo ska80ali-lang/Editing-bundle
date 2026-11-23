@@ -20,8 +20,7 @@ Open `config.js` and paste your values between the quotes. Anything left as `""`
 |---|---|
 | `BUY_LINK` | Your SuperProfile checkout URL. **Every** Buy button (hero, preview, final CTA, mobile sticky bar) uses it. If it's empty, buttons do nothing and the console shows a warning. |
 | `BRAND_NAME` | Shown in the footer, copyright line and legal pages. |
-| `CONTACT_EMAIL` / `CONTACT_PHONE` | Footer `mailto:` / `tel:` links. Use the phone number with country code, e.g. `+91 98765 43210`. |
-| `BUSINESS_ADDRESS` | Shown on the Contact page and inside every policy (recommended for payment-gateway compliance). |
+| `CONTACT_EMAIL` | Support email. Shown in the footer, on the Contact page and inside every policy. |
 | `TERMS_LINK`, `PRIVACY_LINK`, `REFUND_LINK`, `DELIVERY_LINK`, `DISCLAIMER_LINK`, `CONTACT_LINK` | Footer legal links. They already point to the built-in pages (`/terms`, `/privacy-policy`, `/refund-policy`, `/delivery-policy`, `/disclaimer`, `/contact`). Change one only if you host that page elsewhere; set it to `""` to hide it. |
 | `LEGAL_LAST_UPDATED` | The "Last updated" date shown on every legal page. |
 | `META_PIXEL_ID` | Optional. When set, the page loads the Meta Pixel and fires `PageView`, `ViewContent` (once, when "What's Inside" is seen) and `InitiateCheckout` (on every Buy click, value from `PRICE`, currency INR). |
@@ -32,7 +31,7 @@ Open `config.js` and paste your values between the quotes. Anything left as `""`
 When you paste a link and redeploy, the page picks it up automatically.
 
 ### Legal pages
-The legal pages pick up your brand name, email, phone and address from `config.js` automatically. They are a sensible starting template for a digital product sold in India. **Read them once and adjust anything that doesn't match how you run your business** (especially the refund conditions and time limits in `refund-policy.html`). This is not legal advice.
+The legal pages pick up your brand name and support email from `config.js` automatically. They are a sensible starting template for a digital product sold in India. **Read them once and adjust anything that doesn't match how you run your business** (especially the refund conditions and time limits in `refund-policy.html`). This is not legal advice.
 
 ## 2. Image sizes
 

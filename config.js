@@ -7,9 +7,7 @@
 window.SITE_CONFIG = {
   BUY_LINK: "",                 // SuperProfile checkout link — used by EVERY buy button
   BRAND_NAME: "",               // my brand name (shown in header + footer)
-  CONTACT_EMAIL: "",
-  CONTACT_PHONE: "",
-  BUSINESS_ADDRESS: "",         // shown on Contact + policy pages (recommended for payment compliance)
+  CONTACT_EMAIL: "",            // support email — shown in footer, Contact page and all policies
   // Legal pages — already built into this site. Change only if you host them elsewhere.
   TERMS_LINK: "/terms",
   PRIVACY_LINK: "/privacy-policy",

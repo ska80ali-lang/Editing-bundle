@@ -12,9 +12,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap">
-  <link rel="stylesheet" href="/styles.css?v=5">
-  <script src="/config.js?v=5"></script>
-  <script src="/script.js?v=5" defer></script>
+  <link rel="stylesheet" href="/styles.css?v=6">
+  <script src="/config.js?v=6"></script>
+  <script src="/script.js?v=6" defer></script>
 </head>
 <body class="legal-page">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -59,8 +59,6 @@
       <ul class="legal-contact">
         <li><span class="lc-label">Business</span><span data-bind="BRAND_NAME" data-fallback="—"></span></li>
         <li><span class="lc-label">Email</span><a data-link="CONTACT_EMAIL" data-link-type="mailto"><span data-bind="CONTACT_EMAIL"></span></a></li>
-        <li><span class="lc-label">Phone</span><a data-link="CONTACT_PHONE" data-link-type="tel"><span data-bind="CONTACT_PHONE"></span></a></li>
-        <li data-bind-li="BUSINESS_ADDRESS"><span class="lc-label">Address</span><span data-bind="BUSINESS_ADDRESS"></span></li>
       </ul>
 
     </div>
@@ -71,7 +69,6 @@
       <p class="footer-brand" data-bind="BRAND_NAME" data-hide-empty></p>
       <ul class="footer-contact" data-hide-if-empty-children>
         <li><a data-link="CONTACT_EMAIL" data-link-type="mailto"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 7l8 6 8-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><span data-bind="CONTACT_EMAIL"></span></a></li>
-        <li><a data-link="CONTACT_PHONE" data-link-type="tel"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h3.5l1.5 4.5-2 1.5a11 11 0 005 5l1.5-2L19 15.5V19a1.5 1.5 0 01-1.5 1.5C10.6 20.5 3.5 13.4 3.5 6.5A1.5 1.5 0 015 4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><span data-bind="CONTACT_PHONE"></span></a></li>
       </ul>
       <nav aria-label="Legal" data-hide-if-empty-children>
         <ul class="footer-links">
