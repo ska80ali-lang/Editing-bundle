@@ -5,9 +5,9 @@
    (or to show a placeholder box for image slots).
    ========================================================= */
 window.SITE_CONFIG = {
-  BUY_LINK: "",                 // SuperProfile checkout link — used by EVERY buy button
+  BUY_LINK: "https://superprofile.bio/vp/editing-bundle-2026?checkout=true",                 // SuperProfile checkout link — used by EVERY buy button
   BRAND_NAME: "",               // my brand name (shown in header + footer)
-  CONTACT_EMAIL: "",            // support email — shown in footer, Contact page and all policies
+  CONTACT_EMAIL: "ska80ali@gmail.com",            // support email — shown in footer, Contact page and all policies
   // Legal pages — already built into this site. Change only if you host them elsewhere.
   TERMS_LINK: "/terms",
   PRIVACY_LINK: "/privacy-policy",
@@ -17,11 +17,11 @@ window.SITE_CONFIG = {
   CONTACT_LINK: "/contact",
   LEGAL_LAST_UPDATED: "23 November 2026",
   META_PIXEL_ID: "",            // optional
-  PRICE: "₹599",
-  MRP: "₹8,999",
+  PRICE: "₹499",
+  MRP: "₹1,999",
   IMAGES: {
     LOGO: "",
-    HERO_MOCKUP: "",            // main product box image
+    HERO_MOCKUP: "https://i.ibb.co/yxW2BMW/file-000000009608820ba2ff971fdf6fbc4c.png",            // main product box image
     OG_IMAGE: "",               // social share image
     FAVICON: ""
   },
