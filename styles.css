@@ -291,8 +291,31 @@ h3 { font-size: 18px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.
   border: 1px solid var(--border);
 }
 .stat-num { font-family: var(--font-head); font-weight: 700; font-size: 28px; line-height: 1.1; }
-.stat:nth-child(odd) .stat-num { color: var(--amber); }
-.stat:nth-child(even) .stat-num { color: #FF8A5C; }
+.stat .stat-num { color: var(--amber); }
+.stat:nth-child(5n+2) .stat-num, .stat:nth-child(5n+4) .stat-num { color: #FF8A5C; }
+
+/* Auto-looping marquee (mobile/tablet). JS duplicates the items and adds .is-marquee */
+.stats-viewport.has-marquee {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 24px, #000 calc(100% - 24px), transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 24px, #000 calc(100% - 24px), transparent 100%);
+}
+.stats-row.is-marquee {
+  width: max-content;
+  overflow: visible;
+  gap: 0;
+  padding: 20px 0;
+  scroll-snap-type: none;
+  animation: stats-marquee 22s linear infinite;
+  will-change: transform;
+}
+.stats-row.is-marquee .stat { margin-right: 12px; }
+.stats-row.is-marquee.is-paused,
+.stats-row.is-marquee:hover { animation-play-state: paused; }
+@keyframes stats-marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
 .stat-label { font-size: 13px; color: var(--text-2); font-weight: 500; line-height: 1.35; }
 
 /* ---------- Sections ---------- */

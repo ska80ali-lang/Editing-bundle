@@ -193,6 +193,39 @@
     reveals.forEach(function (el) { ro.observe(el); });
   }
 
+  /* ---------- 8b. Stats strip: auto-looping slider on mobile/tablet ---------- */
+  var statsRow = $(".stats-row");
+  var statsView = $(".stats-viewport");
+  if (statsRow && statsView && !reduceMotion && window.matchMedia) {
+    var mqDesktop = window.matchMedia("(min-width: 900px)");
+    var originals = $$(".stat", statsRow);
+    var setMarquee = function () {
+      $$(".stat-clone", statsRow).forEach(function (c) { statsRow.removeChild(c); });
+      if (mqDesktop.matches) {
+        statsRow.classList.remove("is-marquee");
+        statsView.classList.remove("has-marquee");
+        statsRow.setAttribute("tabindex", "0");
+        return;
+      }
+      originals.forEach(function (li) {
+        var c = li.cloneNode(true);
+        c.classList.add("stat-clone");
+        c.setAttribute("aria-hidden", "true");
+        statsRow.appendChild(c);
+      });
+      statsRow.removeAttribute("tabindex");
+      statsRow.setAttribute("aria-label", "Bundle contents");
+      statsRow.classList.add("is-marquee");
+      statsView.classList.add("has-marquee");
+    };
+    setMarquee();
+    if (mqDesktop.addEventListener) mqDesktop.addEventListener("change", setMarquee);
+    // Pause while the user is touching it
+    statsRow.addEventListener("touchstart", function () { statsRow.classList.add("is-paused"); }, { passive: true });
+    statsRow.addEventListener("touchend", function () { statsRow.classList.remove("is-paused"); });
+    statsRow.addEventListener("touchcancel", function () { statsRow.classList.remove("is-paused"); });
+  }
+
   /* ---------- 9. Sticky mobile buy bar ---------- */
   var bar = $("#buy-bar");
   var heroCta = $("#hero-cta");
