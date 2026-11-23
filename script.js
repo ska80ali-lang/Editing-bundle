@@ -14,7 +14,7 @@
 
   /* ---------- 1. Text bindings (PRICE, MRP, BRAND_NAME, contacts) ---------- */
   $$("[data-bind]").forEach(function (el) {
-    var v = val(el.getAttribute("data-bind"));
+    var v = val(el.getAttribute("data-bind")) || el.getAttribute("data-fallback") || "";
     if (!v) {
       if (el.hasAttribute("data-hide-empty")) el.hidden = true;
       el.textContent = "";
@@ -33,9 +33,17 @@
     else if (type === "tel") a.href = "tel:" + v.replace(/[^\d+]/g, "");
     else {
       a.href = v;
-      a.target = "_blank";
-      a.rel = "noopener";
+      if (/^https?:\/\//i.test(v) && v.indexOf(location.host) === -1) {
+        a.target = "_blank";
+        a.rel = "noopener";
+      }
+      if (a.closest(".footer-links") && v.replace(/\/$/, "") === location.pathname.replace(/\.html$/, "").replace(/\/$/, "")) {
+        a.setAttribute("aria-current", "page");
+      }
     }
+  });
+  $$("[data-bind-li]").forEach(function (li) {
+    if (!val(li.getAttribute("data-bind-li"))) li.hidden = true;
   });
   $$("[data-hide-if-empty-children]").forEach(function (box) {
     var visible = $$("li", box).some(function (li) { return !li.hidden; });
@@ -92,14 +100,15 @@
   });
 
   /* ---------- 5. Head: favicon + social meta ---------- */
-  if (IMG.FAVICON) $("#favicon").href = IMG.FAVICON;
+  var setAttr = function (sel, attr, v) { var el = $(sel); if (el) el.setAttribute(attr, v); };
+  if (IMG.FAVICON) setAttr("#favicon", "href", IMG.FAVICON);
   var abs = function (u) { try { return new URL(u, location.href).href; } catch (e) { return u; } };
   if (IMG.OG_IMAGE) {
-    $("#meta-og-image").setAttribute("content", abs(IMG.OG_IMAGE));
-    $("#meta-tw-image").setAttribute("content", abs(IMG.OG_IMAGE));
+    setAttr("#meta-og-image", "content", abs(IMG.OG_IMAGE));
+    setAttr("#meta-tw-image", "content", abs(IMG.OG_IMAGE));
   }
-  $("#meta-og-url").setAttribute("content", location.origin + location.pathname);
-  if (val("BRAND_NAME")) $("#meta-og-site").setAttribute("content", val("BRAND_NAME"));
+  setAttr("#meta-og-url", "content", location.origin + location.pathname);
+  if (val("BRAND_NAME")) setAttr("#meta-og-site", "content", val("BRAND_NAME"));
 
   var year = $("#year");
   if (year) year.textContent = new Date().getFullYear();

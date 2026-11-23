@@ -515,6 +515,48 @@ h3 { font-size: 18px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.
 .footer-contact .icon { width: 18px; height: 18px; color: var(--amber); }
 .copyright { font-size: 13px; }
 
+/* ---------- Legal pages ---------- */
+.legal-topbar { border-bottom: 1px solid var(--border); background: var(--bg-alt); }
+.back-link {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 52px;
+  color: var(--text-2); text-decoration: none; font-weight: 600; font-size: 15px;
+}
+.back-link:hover { color: var(--text); }
+.back-link .icon { color: var(--amber); }
+.legal { padding: 40px 0 64px; }
+.legal h1 { font-size: 30px; margin-bottom: 8px; }
+.legal-updated { color: var(--text-2); font-size: 14px; margin-bottom: 28px; }
+.legal h2 { font-size: 20px; margin: 32px 0 10px; }
+.legal p, .legal li { color: #D4D4D8; }
+.legal p + p, .legal ul + p { margin-top: 12px; }
+.legal ul:not(.legal-contact) { margin: 10px 0 0; }
+.legal ul:not(.legal-contact) li { position: relative; padding-left: 20px; }
+.legal ul:not(.legal-contact) li + li { margin-top: 8px; }
+.legal ul:not(.legal-contact) li::before {
+  content: ""; position: absolute; left: 3px; top: .7em;
+  width: 7px; height: 7px; border-radius: 50%; background: var(--grad);
+}
+.legal strong { color: var(--text); }
+.legal a:not(.btn) { color: #FFC877; text-underline-offset: 3px; }
+.legal-contact {
+  margin-top: 14px;
+  display: grid; gap: 2px;
+  padding: 8px 18px;
+  border-radius: var(--radius);
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+.legal-contact li { display: flex; flex-wrap: wrap; gap: 4px 16px; padding: 10px 0; overflow-wrap: anywhere; }
+.legal-contact li + li { border-top: 1px solid var(--border); }
+.lc-label { min-width: 72px; color: var(--text-2); font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: .04em; padding-top: 2px; }
+.legal-page .site-footer { padding-bottom: 48px; }
+.footer-links a[aria-current="page"] { color: var(--text); }
+@media (min-width: 640px) {
+  .legal { padding: 56px 0 96px; }
+  .legal h1 { font-size: 40px; }
+  .legal h2 { font-size: 22px; }
+}
+
 /* ---------- Sticky mobile buy bar ---------- */
 .buy-bar {
   position: fixed; left: 0; right: 0; bottom: 0; z-index: 50;

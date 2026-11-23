@@ -9,9 +9,15 @@ window.SITE_CONFIG = {
   BRAND_NAME: "",               // my brand name (shown in header + footer)
   CONTACT_EMAIL: "",
   CONTACT_PHONE: "",
-  TERMS_LINK: "",
-  REFUND_LINK: "",
-  PRIVACY_LINK: "",
+  BUSINESS_ADDRESS: "",         // shown on Contact + policy pages (recommended for payment compliance)
+  // Legal pages — already built into this site. Change only if you host them elsewhere.
+  TERMS_LINK: "/terms",
+  PRIVACY_LINK: "/privacy-policy",
+  REFUND_LINK: "/refund-policy",
+  DELIVERY_LINK: "/delivery-policy",
+  DISCLAIMER_LINK: "/disclaimer",
+  CONTACT_LINK: "/contact",
+  LEGAL_LAST_UPDATED: "23 November 2026",
   META_PIXEL_ID: "",            // optional
   PRICE: "₹599",
   MRP: "₹8,999",
