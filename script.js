@@ -79,7 +79,8 @@
       ph.setAttribute("role", "img");
       ph.setAttribute("aria-label", (slot.getAttribute("data-alt") || key) + " (image placeholder)");
       if (key === "LOGO") {
-        ph.textContent = "LOGO";
+        slot.hidden = true; // no logo yet → hide it completely
+        return;
       } else {
         var code = document.createElement("code");
         code.textContent = key;
