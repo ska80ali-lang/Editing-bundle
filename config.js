@@ -22,13 +22,6 @@ window.SITE_CONFIG = {
   IMAGES: {
     LOGO: "",
     HERO_MOCKUP: "",            // main product box image
-    AUTO_PROJECTS: "",
-    TRANSITIONS: "",
-    LUTS: "",
-    OVERLAYS: "",
-    SOUND_EFFECTS: "",
-    BEAUTY_BOX: "",
-    FONTS: "",
     OG_IMAGE: "",               // social share image
     FAVICON: ""
   },

@@ -343,9 +343,50 @@ h3 { font-size: 18px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.
 }
 
 .card-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; }
-.product-card { padding: 10px; display: flex; flex-direction: column; }
-.product-card .card-body { padding: 14px 8px 8px; }
-.product-card p { margin-top: 4px; color: var(--text-2); font-size: 15px; }
+/* What's Inside cards (no images) */
+.inside-card {
+  display: flex; flex-direction: column;
+  padding: 22px 20px 22px;
+  overflow: hidden;
+  isolation: isolate;
+}
+.inside-card::before {
+  content: ""; position: absolute; z-index: -1;
+  width: 220px; height: 220px; right: -90px; top: -110px;
+  background: radial-gradient(closest-side, rgba(255, 140, 70, .16), transparent);
+  pointer-events: none;
+}
+.inside-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 18px; }
+.inside-icon {
+  display: grid; place-items: center; flex: none;
+  width: 52px; height: 52px; border-radius: 14px;
+  background: linear-gradient(135deg, rgba(255,181,71,.18), rgba(255,106,61,.10));
+  border: 1px solid rgba(255, 181, 71, .3);
+  color: var(--amber);
+  box-shadow: 0 8px 24px -10px rgba(255, 106, 61, .55);
+}
+.inside-icon svg { width: 26px; height: 26px; }
+.inside-count { display: flex; flex-direction: column; align-items: flex-end; line-height: 1; }
+.inside-num {
+  font-family: var(--font-head); font-weight: 700; font-size: 34px; letter-spacing: -0.03em;
+  background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.inside-unit { margin-top: 4px; font-size: 11.5px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--text-2); }
+.inside-included {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 12px; border-radius: 999px;
+  background: rgba(255, 181, 71, .1); border: 1px solid rgba(255, 181, 71, .3);
+  color: #FFD08A; font-size: 13px; font-weight: 600;
+}
+.inside-included .icon { width: 16px; height: 16px; }
+.inside-card p { margin-top: 6px; color: var(--text-2); font-size: 15px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.chips li {
+  padding: 5px 11px; border-radius: 999px;
+  background: rgba(255, 255, 255, .04); border: 1px solid var(--border-strong);
+  font-size: 13px; font-weight: 500; color: #E4E4E7; line-height: 1.3;
+}
+
 
 .who-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
 .who-card { padding: 18px 16px; display: flex; flex-direction: column; gap: 12px; }
